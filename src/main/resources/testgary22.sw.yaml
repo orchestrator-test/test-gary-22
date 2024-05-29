@@ -1,6 +1,6 @@
 id: greeting-gary
-version: '1.0.0'
-specVersion: '1.0.0'
+version: '1.0'
+specVersion: '1.0'
 name: Greeting workflow
 description: YAML based greeting workflow
 annotations:
