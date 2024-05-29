@@ -3,7 +3,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: testgary22-ee2e9f1
+  name: testgary22-157dcb6
   namespace: orchestrator-gitops
   labels:
     backstage.io/kubernetes-id: testgary22-ci
