@@ -1,0 +1,25 @@
+
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+    creationTimestamp: null
+    labels:
+        move2kube.konveyor.io/service: testgary22
+    name: testgary22
+spec:
+    host: 1.com
+    path: /testgary22
+    port:
+        targetPort: port-8080
+    tls:
+        termination: passthrough
+    to:
+        kind: Service
+        name: testgary22
+        weight: 1
+status:
+    ingress:
+        - {}
+
+...

@@ -1,0 +1,4 @@
+resources:
+  - 1-git-repo-github-com-secret.yaml
+  - 1-web-hook-testgary22-secret.yaml
+  - 1-clone-build-push-testgary22-buildconfig.yaml

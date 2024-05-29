@@ -1,0 +1,35 @@
+
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+    creationTimestamp: null
+    name: 1-clone-build-push-testgary22
+spec:
+    nodeSelector: null
+    output:
+        to:
+            kind: ImageStreamTag
+            name: testgary22-latest:latest
+    postCommit: {}
+    resources: {}
+    source:
+        git:
+            ref: main
+            uri: ""
+        sourceSecret:
+            name: 1-git-repo-github-com
+        type: Git
+    strategy:
+        dockerStrategy:
+            dockerfilePath: '<TODO: insert path to the Dockerfile>'
+        type: Docker
+    triggers:
+        - generic:
+            secretReference:
+                name: 1-web-hook-testgary22
+          type: Generic
+status:
+    lastVersion: 0
+
+...

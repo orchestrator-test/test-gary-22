@@ -1,0 +1,5 @@
+resources:
+  - testgary22-deployment.yaml
+  - testgary22-latest-imagestream.yaml
+  - testgary22-route.yaml
+  - testgary22-service.yaml
