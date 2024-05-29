@@ -1,25 +1,44 @@
-id: testgary22
-version: "1.0.0-SNAPSHOT"
-specVersion: "0.8"
-name: "testgary22"
-description: "A workflow for onboarding applications to OCP cluster"
+id: greeting
+version: '1.0'
+specVersion: '1.0'
+name: Greeting workflow
+description: YAML based greeting workflow
 annotations:
   - "workflow-type/infrastructure"
-dataInputSchema:
-  failOnValidationErrors: true
-  schema: schemas/testgary22-input-schema.json
+expressionLang: jsonpath
+dataInputSchema: "specs/greeting.sw.input-schema.json"
+start: ChooseOnLanguage
 functions:
-  - name: logInfo
+  - name: greetFunction
     type: custom
-    operation: "sysout:INFO"
-start: "StartState"
+    operation: sysout
 states:
-  - name: "StartState"
-    type: "operation"
+  - name: ChooseOnLanguage
+    type: switch
+    dataConditions:
+      - condition: "${$.[?(@.language  == 'English')]}"
+        transition: GreetInEnglish
+      - condition: "${$.[?(@.language  == 'Spanish')]}"
+        transition: GreetInSpanish
+    defaultCondition:
+      transition: GreetInEnglish
+  - name: GreetInEnglish
+    type: inject
+    data:
+      greeting: 'Hello from YAML Workflow, '
+    transition: GreetPerson
+  - name: GreetInSpanish
+    type: inject
+    data:
+      greeting: 'Saludos desde YAML Workflow, '
+    transition: GreetPerson
+  - name: GreetPerson
+    type: operation
     actions:
-      - name: logInput
+      - name: greetAction
         functionRef:
-          refName: logInfo
+          refName: greetFunction
           arguments:
-            message: '"You entered " + .sampleText'
-    end: true
+            message: "$.greeting $.name"
+    end:
+      terminate: true
