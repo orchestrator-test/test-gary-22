@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: testgary22
+  description: A workflow for onboarding applications to OCP cluster
+  annotations:
+    backstage.io/kubernetes-namespace: orchestrator-gitops
+    backstage.io/kubernetes-id: testgary22-ci
+    janus-idp.io/tekton: testgary22
+    github.com/project-slug: orchestrator-test/test-gary-22
+spec:
+  type: workflow-project
+  system: system:default/janus-orchestrator
+  lifecycle: development
+  owner: user:guest
