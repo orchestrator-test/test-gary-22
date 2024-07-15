@@ -1,0 +1,4 @@
+resources:
+  - 7-ingress.yaml
+  - testgary22-deployment.yaml
+  - testgary22-service.yaml

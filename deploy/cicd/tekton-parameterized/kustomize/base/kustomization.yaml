@@ -1,0 +1,12 @@
+resources:
+  - 7-clone-push-serviceaccount.yaml
+  - 7-git-repo-github-com-secret.yaml
+  - 7-run-clone-build-push-triggertemplate.yaml
+  - 7-tekton-triggers-admin-rolebinding.yaml
+  - 7-tekton-triggers-admin-serviceaccount.yaml
+  - 7-clone-build-push-pipeline.yaml
+  - 7-git-repo-eventlistener.yaml
+  - 7-image-registry-secret.yaml
+  - 7-ingress.yaml
+  - 7-tekton-triggers-admin-role.yaml
+  - 7-git-event-triggerbinding.yaml
