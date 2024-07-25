@@ -1,0 +1,9 @@
+patches:
+  - path: apps-v1-deployment-testgary22.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: testgary22
+resources:
+  - ../../base

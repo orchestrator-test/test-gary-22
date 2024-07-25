@@ -1,0 +1,38 @@
+
+---
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+    creationTimestamp: null
+    name: 3-run-clone-build-push
+spec:
+    resourcetemplates:
+        - apiVersion: tekton.dev/v1beta1
+          kind: PipelineRun
+          metadata:
+            creationTimestamp: null
+            name: 3-clone-build-push-$(uid)
+          spec:
+            params:
+                - name: image-registry-url
+                  value: quay.io/3
+            pipelineRef:
+                name: 3-clone-build-push
+            serviceAccountName: 3-clone-push
+            workspaces:
+                - name: 3-shared-data
+                  volumeClaimTemplate:
+                    metadata:
+                        creationTimestamp: null
+                    spec:
+                        accessModes:
+                            - ReadWriteOnce
+                        resources:
+                            requests:
+                                storage: 1Gi
+                        storageClassName: default
+                    status: {}
+          status: {}
+status: {}
+
+...

@@ -1,0 +1,17 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  creationTimestamp: null
+  name: 3-git-repo
+spec:
+  namespaceSelector: {}
+  resources: {}
+  serviceAccountName: 3-tekton-triggers-admin
+  triggers:
+    - bindings:
+        - ref: 3-git-event
+      template:
+        ref: 3-run-clone-build-push
+status:
+  configuration:
+    generatedName: ""
