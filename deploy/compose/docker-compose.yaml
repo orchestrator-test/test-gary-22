@@ -1,0 +1,8 @@
+version: "3.5"
+services:
+  testgary22:
+    container_name: testgary22
+    image: quay.io/2/testgary22:latest
+    ports:
+      - target: 8080
+        published: 8080
